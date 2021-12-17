@@ -1,0 +1,79 @@
+<%- include('./layouts/header') %>
+<div class="block-search list">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h4 class="">School</h4>
+        <form action="/school" method="POST">
+          <div class="form-group">
+            <label for="">Hệ Đào Tạo</label>
+            <select class="form-control" name="slugTraining">
+              <option disabled="disabled" selected="selected">
+                Hệ đào tạo
+              </option>
+              <option value="cao-dang">Cao đẳng</option>
+              <option value="dai-hoc">Đại học</option>
+              <option value="trung-cap">Trung cấp</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="">Tỉnh/Thành phố</label>
+            <select id="selectList" name="slugAddress" class="form-control">
+              <option disabled="disabled" selected="selected">
+                Tỉnh/Thành Phố
+              </option>
+              <option value="da-nang">Đà Nẵng</option>
+              <option value="ho-chi-minh">Hồ Chí minh</option>
+              <option value="ha-noi">Hà Nội</option>
+              <option value="thua-thien-hue">Thừa Thiên Huế</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-style btn-secondary">
+              <span class="fa fa-search mr-3" aria-hidden="true"></span> Search
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-8">
+        <% if(message) {%>
+        <h6><%= message %></h6>
+        <% }else{ %> <% schools.forEach(function(el){ %>
+        <div class="subject-card mt-4">
+          <div class="subject-card-header p-4">
+            <a href="/school/<%= el.slug  %> " class="card_title p-lg-4d-block">
+              <div class="row align-items-center">
+                <div class="col-sm-4 subject-img">
+                  <img
+                    src="/uploads/<%= el.images %>"
+                    alt=""
+                    height="220px"
+                    width="100%"
+                    style="object-fit: cover; border-radius: 10px"
+                  />
+                </div>
+                <div class="col-sm-8 subject-content mt-sm-0 mt-4">
+                  <h4><%= el.name %></h4>
+                  <p
+                    class="btn btn-success"
+                    style="padding: 6px; line-height: 0.8"
+                  >
+                    <%= el.evaluate %>
+                  </p>
+                  <span class="text-dark p-1">Tốt</span>
+
+                  <%- el.description %>
+
+                  <p class="sub-para" style="color: rgb(241, 119, 32)">
+                    <%= el.majors %>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <% }) %> <% } %>
+      </div>
+    </div>
+  </div>
+</div>

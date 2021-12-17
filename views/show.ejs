@@ -1,0 +1,130 @@
+<%- include('./layouts/header') %>
+  <!-- //header -->
+  <!-- about breadcrumb -->
+  <section class="w3l-about-breadcrumb text-left" style="background: url('../uploads/<%= school.images %> ') no-repeat center;">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+      <div class="container">
+        <h2 class="title"><%= title %></h2>
+        <ul class="breadcrumbs-custom-path mt-2">
+          <li><a href="#url">Home</a></li>
+          <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Single Post </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- //about breadcrumb -->
+  <!--/blog-->
+  <div class="py-5 w3l-homeblock1 text-center">
+    <div class="container mt-md-3">
+        <h3 class="blog-desc-big text-center mb-4"><%= school.name%></h3>
+      <ul class="d-flex justify-content-center flex-wrap">
+        <li><a href="" class="mx-3" style="color: rgb(100, 100, 100);"><i class="fas fa-envelope "></i> <%= school.email %> </a></li>
+        <li><a href="" class="mx-3" style="color: rgb(100, 100, 100);"><i class="fas fa-external-link-alt "></i><%= school.web %> </a></li>
+        <li><a href="" class="mx-3" style="color: rgb(100, 100, 100);"><i class="fas fa-map-marker-alt "></i><%= school.address %> </a></li>
+        <li><a href="" class="mx-3" style="color: rgb(100, 100, 100);"><i class="fas fa-phone-square "></i><%= school.phone %> </a></li>
+      </ul>
+    </div>
+</div>
+<section class="blog-post-main w3l-homeblock1">
+    <!--/blog-post-->
+    <div class="blog-content-inf pb-5">
+        <div class="container pb-lg-4">
+            <div class="single-post-image">
+                <div class="post-content">
+                    <img src="../uploads/<%= school.images %> " class="radius-image mb-5" alt=""  width="100%" style="object-fit: cover;"/>
+                </div>
+            </div>
+            <div class="single-post-content">
+                <p class="mb-4"><%- school.content  %> </p>
+                <blockquote class="blockquote my-5">
+                    <div class="icon-quote"><span class="fa fa-quote-left" aria-hidden="true"></span></div>
+                    Lorem ipsum dolor sit amet,Ea consequuntur illum facere aperiam sequi optio consectetur.Ea
+                    consequuntur illum facere aperiam sequi optio consectetur adipisicing elitFuga, suscipit
+                    totam animi, dolores magnam assumenda soluta odit harum.
+                    <footer class="blockquote-footer mt-3">
+                        Smith lara</footer>
+                </blockquote>
+            </div>
+        </div>
+        <!--//blog-post-->
+</section>
+<div style="margin: 8px auto; display: block; text-align:center;">
+
+  <!---728x90--->
+   
+  </div>
+  <!--/w3l-footer-29-main-->
+  <footer>
+    <!-- footer -->
+    <section class="w3l-footer">
+    
+  
+      <!-- move top -->
+      <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+      </button>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction()
+        };
+  
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+          } else {
+            document.getElementById("movetop").style.display = "none";
+          }
+        }
+  
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <!-- //move top -->
+      <script>
+        $(function () {
+          $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+          })
+        });
+      </script>
+    </section>
+    <!-- //footer -->
+  </footer>
+
+  <!-- Template JavaScript -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/theme-change.js"></script>
+  <!--/MENU-JS-->
+  <script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+	</body>
+
+</html>

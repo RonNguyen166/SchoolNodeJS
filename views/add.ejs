@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add School</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script
+      src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    5
+
+    <script>
+      tinymce.init({ selector: "textarea" });
+    </script>
+  </head>
+
+  <style>
+    .appbar {
+      width: 100%;
+      height: 80px;
+      background-color: rgba(33, 37, 41, 1);
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      position: fixed;
+      top: 0;
+      z-index: 10;
+    }
+    .appbar h2 {
+      line-height: 80px;
+      font-weight: bold;
+    }
+    .add_school {
+      margin-top: 110px;
+      z-index: 1;
+      margin-bottom: 30px;
+    }
+  </style>
+  <body>
+    <div class="container-fluid appbar">
+      <h2>ADD SCHOOL</h2>
+    </div>
+    <div class="container add_school">
+      <form action="/admin/add" method="POST" enctype="multipart/form-data">
+        <div
+          class="row"
+          style="
+            width: 100%;
+            background-color: lavender;
+            padding: 40px 0;
+            border-radius: 8px;
+          "
+        >
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="name">Name School</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="School Name"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="trainingSystem" name="trainingSystem"
+                >Training Field</label
+              >
+              <select class="form-control" id="trainingSystem">
+                <option value="Hệ Đại Học">Hệ Đại Học</option>
+                <option value="Hệ Cao Đẳng">Hệ Cao Đẳng</option>
+                <option value="Hệ Trung Cấp">Hệ Trung Cấp</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Code School</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="ABC"
+                name="code"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                name="email"
+                placeholder="abc@gmail.com"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Facebook</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                name="facebook"
+                placeholder="facebook.com"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Website</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                name="web"
+                placeholder="school.com"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="phone">Number Phone</label>
+              <input
+                type="text"
+                class="form-control"
+                id="phone"
+                name="phone"
+                placeholder="+84123456789"
+              />
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                name="address"
+              />
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="minTuition">Min Tuition</label>
+              <input
+                type="number"
+                class="form-control"
+                id="minTuition"
+                name="minTuition"
+                placeholder="0"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="maxTuition">Max Tuition</label>
+              <input
+                type="number"
+                class="form-control"
+                id="maxTuition"
+                name="maxTuition"
+                placeholder="0"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="minPoint">Min Point</label>
+              <input
+                type="number"
+                class="form-control"
+                id="minPoint"
+                name="minPoint"
+                placeholder="0"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="maxPoint">Max Point</label>
+              <input
+                type="number"
+                class="form-control"
+                id="maxPoint"
+                name="maxPoint"
+                placeholder="0"
+              />
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="majors">Majors</label>
+              <input
+                type="text"
+                class="form-control"
+                id="majors"
+                ,
+                name="majors"
+                placeholder="Đa ngành"
+              />
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="image">Select Image</label>
+            <input type="file" class="form-control p-1" name="images" />
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Evaluate</label>
+              <input
+                type="number"
+                class="form-control"
+                id="exampleFormControlInput1"
+                name="evaluate"
+                placeholder="0"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="admission">Admission</label>
+              <input
+                type="text"
+                class="form-control"
+                id="admission"
+                name="admission"
+                placeholder="Phương thức xét tuyển"
+              />
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                class="form-control"
+                id="description"
+                rows="3"
+                name="description"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="content">Content</label>
+              <textarea
+                class="form-control"
+                id="content"
+                rows="5"
+                name="content"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 mt-2">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="margin-left: 90%"
+            >
+              Submit
+            </button>
+            <br />
+            <br />
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<%- include('./layouts/header') %> 
+
+    <div class="banner-content">
+          <div class="container">
+            <div class="banner-infhny">
+              <h3>
+               Xem review để lựa chọn
+                Ngôi trường tốt nhất
+                cho bạn</h3>
+              <div class="flex-wrap search-wthree-field mt-md-5 mt-4">
+                <form action="/school" method="POST" class="booking-form">
+                  <div class="row book-form">
+                    <div class="form-input col-md-4 mt-md-0 mt-3">
+
+                      <select id="selectList" name="slugTraining"><option disabled="disabled" selected="selected">Hệ đào tạo</option><option value="cao-dang">Cao đẳng</option><option value="dai-hoc">Đại học</option><option value="trung-cap">Trung cấp</option></select>
+                    </div>
+            
+                    <div class="form-input col-md-4 mt-md-0 mt-3">
+                      <select id="selectList" name="slugAddress"><option disabled="disabled" selected="selected">Tỉnh/Thành Phố</option><option value="da-nang">Đà Nẵng</option><option value="ho-chi-minh">Hồ Chí minh</option><option value="ha-noi">Hà Nội</option></select>
+                    </div>
+                    <div class="bottom-btn col-md-4 mt-md-0 mt-3">
+                      <button class="btn btn-style btn-secondary"><span class="fa fa-search mr-3"
+                          aria-hidden="true"></span> Search</button>
+                    </div>
+            
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="list">
+    <div class="container py-md-5 ">
+      <div style="margin: 8px auto; display: block; text-align:center;">
+         
+        </div>
+      <div class="title-content text-left mb-lg-5 mb-4">
+        <h6 class="sub-title">Visit</h6>
+        <h3 class="hny-title">Popular Schools</h3>
+      </div>
+      <div style="margin: 8px auto; display: block; text-align:center;">
+
+        <!---728x90--->
+         
+        </div>
+      <div class="row bottom-ab-grids">
+        <% schools.forEach(function(el){ %>
+          <div class="col-lg-6 subject-card mt-4" style="height:100%;">
+            <div class="subject-card-header p-4">
+              <a href="/school/<%= el.slug  %>" class="card_title p-lg-4d-block">
+                <div class="row align-items-center">
+                  <div class="col-sm-5 subject-img">
+                    <img src="/uploads/<%= el.images %>" alt="" height="220px" width="100%" style="object-fit: cover; border-radius: 10px;">
+                  </div>
+                  <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                    <h4><%= el.name %> </h4>
+                    <p class="btn btn-success" style="padding: 6px; line-height: 0.8;"><%= el.evaluate %></p><span class="text-dark p-1">Tốt</span>
+                    
+                   <%- el.description %>
+                
+                
+                    <p class="sub-para" style="color: rgb(241, 119, 32);"><%= el.majors %></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        <% }) %> 
+      
+        
+      </div>
+    </div>
+  </div>
+  <!--//grids-->
+ 
+      <!-- move top -->
+      <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+      </button>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction()
+        };
+  
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+          } else {
+            document.getElementById("movetop").style.display = "none";
+          }
+        }
+  
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <!-- //move top -->
+      <script>
+        $(function () {
+          $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+          })
+        });
+      </script>
+    <!-- //footer -->
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script>
+    $('.counter').countUp();
+  </script>
+  <!-- //stats number counter -->
+
+  <!--/MENU-JS-->
+  <script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+  <!--//MENU-JS-->
+
+
+	</body>
+
+</html>
