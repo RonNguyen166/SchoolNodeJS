@@ -15,7 +15,6 @@ const schoolSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  snippetDescribe: String,
   majors: {
     type: [String],
     default: ["Đa Ngành"],
@@ -58,10 +57,6 @@ const schoolSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  facebook: {
-    type: String,
-    trim: true,
-  },
   email: {
     type: String,
     trim: true,
@@ -81,12 +76,19 @@ const schoolSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+
   slug: {
     type: String,
     unique: true,
   },
   slugAddress: String,
   slugTraining: String,
+});
+
+schoolSchema.virtual("reviews", {
+  ref: "Review",
+  foreignField: "school",
+  localField: "_id",
 });
 
 schoolSchema.pre("save", function (next) {

@@ -53,19 +53,24 @@
                   />
                 </div>
                 <div class="col-sm-8 subject-content mt-sm-0 mt-4">
-                  <h4><%= el.name %></h4>
+                  <h4 class="mb-3"><%= el.name %></h4>
                   <p
                     class="btn btn-success"
-                    style="padding: 6px; line-height: 0.8"
+                    style="padding: 9px; line-height: 0.7"
                   >
                     <%= el.evaluate %>
                   </p>
-                  <span class="text-dark p-1">Tốt</span>
+                  <div class="text-review d-inline-flex flex-column">
+                    <span class="text-dark p-1">Tốt</span>
+                    <span class="text-dark p-1"
+                      ><%= el.reviews.length %> Đánh giá</span
+                    >
+                  </div>
 
-                  <%- el.description %>
+                  <div class="text-describe"><%= el.description %></div>
 
-                  <p class="sub-para" style="color: rgb(241, 119, 32)">
-                    <%= el.majors %>
+                  <p class="sub-para mt-2" style="color: rgb(241, 119, 32)">
+                    <i class="fas fa-graduation-cap mr-2"></i> <%= el.majors %>
                   </p>
                 </div>
               </div>
@@ -77,3 +82,4 @@
     </div>
   </div>
 </div>
+<%- include('./layouts/footer')%>

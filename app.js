@@ -11,6 +11,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var adminRouter = require("./routes/admin");
 var schoolsRouter = require("./routes/school");
+var reviewsRouter = require("./routes/review");
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/school", schoolsRouter);
 app.use("/admin", adminRouter);
+app.use("/review", reviewsRouter);
 
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, "Not found"));

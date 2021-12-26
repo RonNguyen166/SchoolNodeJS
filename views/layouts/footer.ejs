@@ -1,0 +1,121 @@
+</section>
+<!--/w3l-footer-29-main-->
+<footer>
+  <!-- footer -->
+  <section class="w3l-footer-16">
+    <div class="w3l-footer-16-main">
+            <div class="wrapper" style="width: 75%; margin: 0 auto;">
+                <div class="grid">
+                    <div class="column">
+                        <h2><a href="index.html" class="logo-2">RevSchool</a></h2>
+                        <p>All rights reserved.<br>©2019 <a href="http://w3layouts.com/" target="_blank">RevSchool</a>
+                        </p>
+                    </div>
+                    <div class="column">
+                        <h3>About</h3>
+                        <ul class="footer-gd-16">
+                            <li><a href="faq.html">FAQs</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="team.html">Travel Guides</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Pages</h3>
+                        <ul class="footer-gd-16">
+                            <li><a href="ecommerce.html">Products</a></li>
+                            <li><a href="blog.html">Blog Page</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="signup.html">Signup</a></li>
+                        </ul>
+                    </div>
+                    <div class="column column3">
+                        <h3>Explore</h3>
+                        <ul class="footer-gd-16">
+                            <li><a href="#help">Support Center</a></li>
+                            <li><a href="#terms">Terms &amp; Conditions</a></li>
+                            <li><a href="#privacy">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="column column4">
+                        <h3>Subscribe </h3>
+                        <form action="#" class="subscribe" method="post">
+                            <input type="email" name="email" placeholder="Placeholder" required="">
+                            <button><span class="fa fa-paper-plane" aria-hidden="true"></span></button>
+                        </form>
+                        <p>Subscribe to our mailing list and get updates to your email inbox.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+      <span class="fa fa-angle-up"></span>
+    </button>
+    <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction()
+      };
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("movetop").style.display = "block";
+        } else {
+          document.getElementById("movetop").style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <!-- //move top -->
+    <script>
+      $(function () {
+        $('.navbar-toggler').click(function () {
+          $('body').toggleClass('noscroll');
+        })
+      });
+    </script>
+  </section>
+  <!-- //footer -->
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--/MENU-JS-->
+<script>
+  $(window).on("scroll", function () {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 80) {
+      $("#site-header").addClass("nav-fixed");
+    } else {
+      $("#site-header").removeClass("nav-fixed");
+    }
+  });
+
+
+  //Main navigation Active Class Add Remove
+  $(".navbar-toggler").on("click", function () {
+    $("header").toggleClass("active");
+  });
+  $(document).on("ready", function () {
+    if ($(window).width() > 991) {
+      $("header").removeClass("active");
+    }
+    $(window).on("resize", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+    });
+  });
+</script>
+  </body>
+
+</html>

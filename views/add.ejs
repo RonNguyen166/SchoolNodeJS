@@ -21,7 +21,7 @@
     5
 
     <script>
-      tinymce.init({ selector: "textarea" });
+      tinymce.init({ selector: "textarea#content" });
     </script>
   </head>
 
@@ -76,13 +76,15 @@
           </div>
           <div class="col-sm-3">
             <div class="form-group">
-              <label for="trainingSystem" name="trainingSystem"
-                >Training Field</label
+              <label for="trainingSystem">Training Field</label>
+              <select
+                class="form-control"
+                id="trainingSystem"
+                name="trainingSystem"
               >
-              <select class="form-control" id="trainingSystem">
-                <option value="Hệ Đại Học">Hệ Đại Học</option>
-                <option value="Hệ Cao Đẳng">Hệ Cao Đẳng</option>
-                <option value="Hệ Trung Cấp">Hệ Trung Cấp</option>
+                <option value="Đại Học">Hệ Đại Học</option>
+                <option value="Cao Đẳng">Hệ Cao Đẳng</option>
+                <option value="Trung Cấp">Hệ Trung Cấp</option>
               </select>
             </div>
           </div>
@@ -98,7 +100,7 @@
               />
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <div class="form-group">
               <label for="exampleFormControlInput1">Email</label>
               <input
@@ -110,19 +112,7 @@
               />
             </div>
           </div>
-          <div class="col-sm-3">
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Facebook</label>
-              <input
-                type="text"
-                class="form-control"
-                id="exampleFormControlInput1"
-                name="facebook"
-                placeholder="facebook.com"
-              />
-            </div>
-          </div>
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <div class="form-group">
               <label for="exampleFormControlInput1">Website</label>
               <input
@@ -134,7 +124,7 @@
               />
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <div class="form-group">
               <label for="phone">Number Phone</label>
               <input
@@ -154,6 +144,7 @@
                 class="form-control"
                 id="exampleFormControlInput1"
                 name="address"
+                placeholder="Địa chỉ"
               />
             </div>
           </div>
@@ -254,10 +245,10 @@
             <div class="form-group">
               <label for="description">Description</label>
               <textarea
-                class="form-control"
-                id="description"
-                rows="3"
                 name="description"
+                id=""
+                cols="30"
+                class="form-control"
               ></textarea>
             </div>
           </div>

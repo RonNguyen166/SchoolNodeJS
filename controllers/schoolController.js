@@ -3,6 +3,8 @@ const httpStatus = require("http-status");
 const ApiError = require("../utils/ApiError");
 const fs = require("fs");
 const catchAsync = require("../utils/catchAsync");
+const slugify = require("slugify");
+const Review = require("../models/reviewModel");
 
 var repFindLike = function (obj) {
   Object.keys(obj).forEach(function (key) {
@@ -38,8 +40,10 @@ exports.viewAdd_school = catchAsync((req, res, next) => {
 });
 
 exports.searchSchool = catchAsync(async (req, res, next) => {
+  if (req.body.slug)
+    req.body.slug = await slugify(req.body.slug, { lower: true, locale: "vi" });
   const newObj = repFindLike({ ...req.body });
-  const schools = await School.find(newObj);
+  const schools = await School.find(newObj).populate("reviews");
   if (!schools.length) {
     res.render("search", {
       message: "Trường không tìm thấy",
@@ -73,9 +77,11 @@ exports.showSchool = catchAsync(async (req, res, next) => {
   if (!school) {
     throw new ApiError(httpStatus.NOT_FOUND, "School not found");
   } else {
+    const reviews = await Review.find({ school: school._id });
     res.render("show", {
       title: `${school.name}`,
       school: school,
+      reviews: reviews,
     });
   }
 });
@@ -92,7 +98,7 @@ exports.edit_school = catchAsync(async (req, res, next) => {
 });
 
 exports.getAll = catchAsync(async (req, res, next) => {
-  const schools = await School.find();
+  const schools = await School.find().populate("reviews");
   res.render("index", {
     title: "School Page",
     schools: schools,
@@ -135,6 +141,7 @@ exports.delete = catchAsync(async (req, res, next) => {
   res.status(httpStatus.NO_CONTENT).json();
 });
 
+/// admin
 exports.admin = catchAsync(async (req, res, next) => {
   const schools = await School.find();
   if (!req.session.email) {

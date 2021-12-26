@@ -17,6 +17,7 @@ exports.logout = catchAsync(async (req, res, next) => {
     req.session.destroy();
   }
   res.redirect("/admin");
+ 
 });
 exports.signUp = catchAsync(async (req, res, next) => {
   const user = await User.create(req.body);
