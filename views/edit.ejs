@@ -86,9 +86,9 @@
                 id="trainingSystem"
                 name="trainingSystem"
               >
-                <option value="Đại Học">Hệ Đại Học</option>
-                <option value="Cao Đẳng">Hệ Cao Đẳng</option>
-                <option value="Trung Cấp">Hệ Trung Cấp</option>
+                <option value="Đại Học" <% if(school.trainingSystem =="Đại Học"){%> selected="selected" <%} %>>Hệ Đại Học</option>
+                <option value="Cao Đẳng" <% if(school.trainingSystem =="Cao Đẳng"){%> selected="selected" <%} %>> Hệ Cao Đẳng</option>
+                <option value="Trung Cấp" <% if(school.trainingSystem =="Trung Cấp"){%> selected="selected" <%} %>>Hệ Trung Cấp</option>
               </select>
             </div>
           </div>
@@ -223,7 +223,7 @@
 
           <div class="col-sm-1">
             <img
-              src="/uploads/1640790063475_911.jpg"
+              src="/uploads/<%= school.images %> "
               width="70"
               height="70"
               style="border-radius: 10%; object-fit: cover"
