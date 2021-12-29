@@ -1,8 +1,17 @@
 <%- include('./layouts/header') %>
+
+<script>
+  var active_school = document.getElementById('active-school');
+  var active_home = document.getElementById('active-home');
+  
+  active_school.classList.add('active');
+  active_home.classList.remove('active');
+</script>
+
 <div class="block-search list">
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-md-12 col-lg-4">
         <h4 class="">School</h4>
         <form action="/school" method="POST">
           <div class="form-group">
@@ -35,7 +44,7 @@
           </div>
         </form>
       </div>
-      <div class="col-sm-8">
+      <div class="col-md-12 col-lg-9">
         <% if(message) {%>
         <h6><%= message %></h6>
         <% }else{ %> <% schools.forEach(function(el){ %>

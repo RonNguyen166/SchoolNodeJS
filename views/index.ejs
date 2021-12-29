@@ -1,9 +1,19 @@
 <%- include('./layouts/header') %>
 
+<script>
+  var active_school = document.getElementById('active-school');
+  var active_home = document.getElementById('active-home');
+  
+  active_home.classList.add('active');
+  active_school.classList.remove('active');
+</script>
+
+
+
 <div class="banner-content">
   <div class="container">
     <div class="banner-infhny">
-      <h3>Xem review để lựa chọn Ngôi trường tốt nhất cho bạn</h3>
+      <h3 id="tieude_web">Xem review để lựa chọn Ngôi trường tốt nhất cho bạn</h3>
       <div class="flex-wrap search-wthree-field mt-md-5 mt-4">
         <form action="/school" method="POST" class="booking-form">
           <div class="row book-form">

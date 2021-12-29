@@ -1,6 +1,15 @@
 <%- include('./layouts/header') %>
 <!-- //header -->
 <!-- about breadcrumb -->
+<script>
+  var active_school = document.getElementById('active-school');
+  var active_home = document.getElementById('active-home');
+  
+  active_school.classList.add('active');
+  active_home.classList.remove('active');
+</script>
+
+
 <section
   class="w3l-about-breadcrumb text-left"
   style="background: url('../uploads/<%= school.images %> ') no-repeat center"
@@ -23,23 +32,23 @@
 <div class="py-5 w3l-homeblock1 text-center">
   <div class="container mt-md-3">
     <h3 class="blog-desc-big text-center mb-4"><%= school.name%></h3>
-    <ul class="b-contact">
-      <li>
+    <ul class="b-contact row">
+      <li class="col-md-6 col-lg-3 my-1">
         <a href="" class="mx-1" style="color: rgb(100, 100, 100)"
           ><i class="fas fa-envelope"></i> <%= school.email %>
         </a>
-      </li>
-      <li>
+      </li >
+      <li class="col-md-6 col-lg-3 my-1">
         <a href="" class="mx-1" style="color: rgb(100, 100, 100)"
           ><i class="fas fa-external-link-alt"></i><%= school.web %>
         </a>
       </li>
-      <li>
+      <li class="col-md-6 col-lg-3 my-1">
         <a href="" class="mx-1" style="color: rgb(100, 100, 100)"
           ><i class="fas fa-map-marker-alt"></i><%= school.address %>
         </a>
       </li>
-      <li>
+      <li class="col-md-6 col-lg-3 my-1">
         <a href="" class="mx-1" style="color: rgb(100, 100, 100)"
           ><i class="fas fa-phone-square"></i><%= school.phone %>
         </a>
