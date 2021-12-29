@@ -119,14 +119,17 @@ exports.update = catchAsync(async (req, res, next) => {
   if (req.file) {
     new_image = req.file.filename;
     try {
-      fs.unlinkSync("../public/uploads/" + req.body.old_filename);
+      fs.unlinkSync("./public/uploads/" + req.body.old_filename);
     } catch (err) {
       console.log(err);
     }
   } else {
     new_image = req.body.old_filename;
   }
-  const school = await School.findByIdAndUpdate(req.params.id, req.body);
+  const school = await School.findByIdAndUpdate(req.params.id, {
+    ...req.body,
+    images: new_image,
+  });
   req.session.message = {
     type: "success",
     message: "Trường đã sửa đổi!",
@@ -139,7 +142,7 @@ exports.delete = catchAsync(async (req, res, next) => {
   console.log(school.images);
   if (school.images != "") {
     try {
-      fs.unlinkSync("../public/uploads/" + school.images);
+      fs.unlinkSync("./public/uploads/" + school.images);
     } catch (err) {
       console.log(err);
     }

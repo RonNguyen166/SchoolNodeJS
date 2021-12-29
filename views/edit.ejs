@@ -221,7 +221,20 @@
             </div>
           </div>
 
-          <div class="col-sm-6">
+          <div class="col-sm-1">
+            <img
+              src="/uploads/1640790063475_911.jpg"
+              width="70"
+              height="70"
+              style="border-radius: 10%; object-fit: cover"
+            />
+            <input
+              type="hidden"
+              name="old_image"
+              value="<%= school.images %>"
+            />
+          </div>
+          <div class="col-sm-5">
             <label for="image">Select Image</label>
             <input type="file" class="form-control p-1" name="images" />
           </div>
