@@ -923,3 +923,9 @@ ul.breadcrumbs-custom-path li a {
     display: none;
   }
 }
+
+@media (max-width:992px){
+  #tieude_web{
+    font-size: 40px;
+  }
+}
