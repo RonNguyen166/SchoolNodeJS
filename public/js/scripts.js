@@ -11,6 +11,24 @@ function remcl() {
     parent.classList.remove("focus");
   }
 }
+function deleted(id) {
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this imaginary file!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      window.location = "/admin/delete/" + id;
+      swal("Poof! Your imaginary file has been deleted!", {
+        icon: "success",
+      });
+    } else {
+      swal("Your imaginary file is safe!");
+    }
+  });
+}
 
 inputs.forEach((input) => {
   input.addEventListener("focus", addcl);

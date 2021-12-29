@@ -247,6 +247,27 @@
                 >
               </li>
             </ol>
+            <% if(message){%>
+            <div
+              class="
+                alert alert-<%=
+                message.type
+                %>
+                alert-dismissible
+                fade
+                show
+              "
+              role="alert"
+            >
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+              <strong><%= message.message %> </strong>
+            </div>
+            <%} %>
             <div class="card mb-4">
               <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -301,8 +322,14 @@
                           class="text-success mx-2"
                           ><i class="fas fa-edit fa-lg"></i
                         ></a>
-                        <a
+                        <!-- <a
                           href="/admin/delete/<%= el._id %> "
+                          class="text-danger mx-2"
+                        >
+                          <i class="fas fa-trash fa-lg"></i>
+                        </a> -->
+                        <a
+                          onclick="deleted('<%= el._id %>')"
                           class="text-danger mx-2"
                         >
                           <i class="fas fa-trash fa-lg"></i>
@@ -337,6 +364,7 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../js/scripts.js"></script>
   </body>
 </html>

@@ -2,6 +2,7 @@ const catchAsync = require("./../utils/catchAsync");
 const AppError = require("./../utils/ApiError");
 const Review = require("./../models/reviewModel");
 const School = require("./../models/schoolModel");
+const httpStatus = require("http-status");
 
 exports.createReview = catchAsync(async (req, res, next) => {
   if (!req.body.school) {
@@ -17,7 +18,7 @@ exports.createReview = catchAsync(async (req, res, next) => {
     res.redirect("/school/" + req.params.slug);
     res.status(201).json(doc);
   } else {
-    res.redirect("/school/" + req.params.slug);
+    throw new AppError(httpStatus.NOT_FOUND, "Email của bạn đã được đánh giá!");
   }
   // const user = await Review.
 });

@@ -119,7 +119,7 @@ exports.update = catchAsync(async (req, res, next) => {
   if (req.file) {
     new_image = req.file.filename;
     try {
-      fs.unlinkSync("../public/uploads" + req.body.old_filename);
+      fs.unlinkSync("../public/uploads/" + req.body.old_filename);
     } catch (err) {
       console.log(err);
     }
@@ -136,6 +136,7 @@ exports.update = catchAsync(async (req, res, next) => {
 });
 exports.delete = catchAsync(async (req, res, next) => {
   const school = await School.findByIdAndRemove(req.params.id);
+  console.log(school.images);
   if (school.images != "") {
     try {
       fs.unlinkSync("../public/uploads/" + school.images);
