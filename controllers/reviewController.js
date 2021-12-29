@@ -8,14 +8,27 @@ exports.createReview = catchAsync(async (req, res, next) => {
     const school = await School.findOne({ slug: req.params.slug });
     req.body.school = school._id;
   }
-  const doc = await Review.create(req.body);
-  res.redirect("/school/" + req.params.slug);
-  res.status(201).json(doc);
+  const used = await Review.findOne({
+    school: req.body.school,
+    email: req.body.email,
+  });
+  if (!used) {
+    const doc = await Review.create(req.body);
+    res.redirect("/school/" + req.params.slug);
+    res.status(201).json(doc);
+  } else {
+    res.redirect("/school/" + req.params.slug);
+  }
+  // const user = await Review.
 });
 
 exports.getAll = catchAsync(async (req, res, next) => {
   let filter = {};
-  if (req.params.schoolId) filter = { school: req.params.schoolId };
+  if (req.params.slug) {
+    const school = await School.findOne({ slug: req.params.slug });
+    filter = { school: school._id };
+  }
+
   const docs = await Review.find(filter).populate("school", "name");
   res.status(200).json({
     status: "success",

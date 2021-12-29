@@ -36,6 +36,8 @@ const reviewSchema = mongoose.Schema({
   },
 });
 
+reviewSchema.index({ tour: 1, email: 1 }, { unique: true });
+
 reviewSchema.pre("validate", function (next) {
   if (this.content) {
     this.content = htmlPurify.sanitize(this.content);

@@ -40,6 +40,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     new simpleDatatables.DataTable(datatablesSimple);
   }
 });
+
 $(document).ready(function () {
   var modal = $(".modal");
   var btn = $(".btn");
