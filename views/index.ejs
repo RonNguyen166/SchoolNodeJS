@@ -51,7 +51,7 @@
       <!---728x90--->
     </div>
     <div class="row bottom-ab-grids">
-      <% schools.forEach(function(el){ if(el.trainingSystem == "Đại Học"){%>
+      <% universities.forEach(function(el){%>
       <div class="col-lg-6 subject-card mt-4" style="height: 100%">
         <div class="subject-card-header p-4">
           <a href="/school/<%= el.slug  %>" class="card_title p-lg-4d-block">
@@ -90,7 +90,7 @@
           </a>
         </div>
       </div>
-      <% }}) %>
+      <% }) %>
     </div>
   </div>
 </div>
@@ -101,11 +101,9 @@
       <h6 class="sub-title">Visit</h6>
       <h3 class="hny-title">Top Trường Cao Đẳng</h3>
     </div>
-    <div style="margin: 8px auto; display: block; text-align: center">
-      <!---728x90--->
-    </div>
+    <div style="margin: 8px auto; display: block; text-align: center"></div>
     <div class="row bottom-ab-grids">
-      <% schools.forEach(function(el){ if(el.trainingSystem == "Cao Đẳng"){%>
+      <% colleges.forEach(function(el){ %>
       <div class="col-lg-6 subject-card mt-4" style="height: 100%">
         <div class="subject-card-header p-4">
           <a href="/school/<%= el.slug  %>" class="card_title p-lg-4d-block">
@@ -144,7 +142,7 @@
           </a>
         </div>
       </div>
-      <% }}) %>
+      <% }) %>
     </div>
   </div>
 </div>

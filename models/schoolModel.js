@@ -106,10 +106,6 @@ schoolSchema.pre("validate", function (next) {
     this.content = htmlPurify.sanitize(this.content);
     this.snippetContent = stripHtml(this.content.substring(0, 200)).result;
   }
-  if (this.description) {
-    this.description = htmlPurify.sanitize(this.description);
-    this.snippetDescribe = stripHtml(this.description.substring(0, 200)).result;
-  }
   next();
 });
 module.exports = mongoose.model("School", schoolSchema);

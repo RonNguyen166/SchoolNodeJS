@@ -98,10 +98,20 @@ exports.edit_school = catchAsync(async (req, res, next) => {
 });
 
 exports.getAll = catchAsync(async (req, res, next) => {
-  const schools = await School.find().populate("reviews");
+  const universities = await School.find({
+    trainingSystem: "Đại Học",
+  })
+    .populate("reviews")
+    .limit(4);
+  const colleges = await School.find({
+    trainingSystem: "Cao Đẳng",
+  })
+    .populate("reviews")
+    .limit(4);
   res.render("index", {
     title: "School Page",
-    schools: schools,
+    universities: universities,
+    colleges: colleges,
   });
 });
 exports.update = catchAsync(async (req, res, next) => {
