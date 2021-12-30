@@ -20,13 +20,17 @@ var upload = multer({
 
 router.post("/search", schoolController.searchSchool_admin);
 
-router.get("/", schoolController.admin);
-router.post("/", authController.login);
+router.route("/").get(schoolController.admin).post(authController.login);
 
 router.get("/logout", authController.logout);
 
 router.get("/school/add", schoolController.viewAdd_school);
 router.post("/add", upload, schoolController.create);
+
+router
+  .route("/resetPassword")
+  .get(authController.viewResetPassword)
+  .post(authController.resetPassword);
 
 router.get("/school/edit/:id", schoolController.edit_school);
 
